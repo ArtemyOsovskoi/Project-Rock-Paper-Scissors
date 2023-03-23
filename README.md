@@ -1,14 +1,14 @@
 # Project-Rock-Paper-Scissors
 
 ## Introduction
-This is my first JS project. I'm making this while working throught the Odin Project JS lessons. 
+This is my first JS project. I'm making this while working through the Odin Project JS lessons. 
 
 I don't really know how to wrote proper README right now, but I'll do my best and describe the steps I've taken. 
 
 My main goal is to get the flow of writing in programming language as well as develop problem solving skills.
 
 ## Starting out
-I followed the method describet in the Odin Project.
+I followed the method described in the Odin Project.
 1) Understand the problem
 2) Plan
 3) Pseudocode
