@@ -50,18 +50,14 @@ function playRound(playerSelection, computerSelection) {
 let playerScore = 0;
 let computerScore = 0;
 
-const playerSelection = prompt("Let,s go! Rock, Paper, Scissors?").toLowerCase();
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-function game() {
-    let roundScore = playRound(playerSelection, computerSelection);
-    console.log(roundScore)
-    
+function game() {    
     for (let i = 0; i < 5; i++) { 
-        playRound()
-        let playerInput = prompt("Rock, Paper, Scissors?").toLowerCase;
-        console.log(roundScore)
+        const playerSelection = prompt("Please choose - Rock, Paper, Scissors?").toLowerCase(); //player move
+        let computerSelection = getComputerChoice();//computer move
+        let roundScore = playRound(playerSelection, computerSelection);//score one round
+        console.log(playRound(playerSelection, computerSelection));         
+
+        playRound() //play one round and assign scores
             if (roundScore === "Player won! Rock beats Scissors" || roundScore === "Player won! Paper beats Rock" || roundScore === "Player won! Scissors beats Paper") {
             alert("Player won! Computer lose.");
             playerScore++;
@@ -74,7 +70,7 @@ function game() {
             alert("Wrong choice.");
             } 
     }
-    
+    //final evaluation and declaring a winner and loser
     if (playerScore > computerScore) {
         alert("Player won!!! Computer lose...");
     } else if (computerScore > playerScore) {
