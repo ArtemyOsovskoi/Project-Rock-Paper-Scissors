@@ -8,7 +8,7 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
         
-        return("Player won! Rock beats Scissors");
+        return "Player won! Rock beats Scissors"
     } 
     else if (playerSelection === "rock" && computerSelection === "paper") {
        
@@ -59,24 +59,24 @@ function game() {
 
         playRound() //play one round and assign scores
             if (roundScore === "Player won! Rock beats Scissors" || roundScore === "Player won! Paper beats Rock" || roundScore === "Player won! Scissors beats Paper") {
-            alert("Player won! Computer lose.");
+            alert("You won! Computer lose."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
             playerScore++;
             } else if (roundScore === "Computer won! Paper beats Rock" || roundScore ===  "Computer won! Scissors beats Paper" || roundScore === "Computer won! Rock beats Scissors") {
-            alert("Computer won! You lose.");
+            alert("Computer won! You lose."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
             computerScore++;
             } else if (roundScore === "Draw!") {
-            alert("Draw!");
+            alert("Draw!"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
             } else {
             alert("Wrong choice.");
             } 
     }
     //final evaluation and declaring a winner and loser
     if (playerScore > computerScore) {
-        alert("Player won!!! Computer lose...");
+        alert("Player won!!! Computer lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } else if (computerScore > playerScore) {
-        alert("Computer won!!! You lose...");
+        alert("Computer won!!! You lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } else if (computerScore === playerScore && computerScore !=0 && playerScore !=0 ) {
-        alert("Draw!!! Try again...");
+        alert("Draw!!! Try again..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } else {
         alert("Wrong choice, please try again");
     }
