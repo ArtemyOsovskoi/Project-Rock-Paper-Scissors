@@ -7,18 +7,16 @@ let rounds = 0;
 let buttonRock = document.querySelector("#brock");
 buttonRock.addEventListener("click", () => {
     playRound("rock", computerSelection);
-    rounds++;
-    if 
 }); 
+
 let buttonPaper = document.querySelector("#bpaper");
 buttonPaper.addEventListener("click", () => {
-    playRound("paper", computerSelection);
-    rounds++;
+    playRound("paper", computerSelection);   
 }); 
+
 let buttonScissors = document.querySelector("#bscissors");
 buttonScissors.addEventListener("click", () => {
     playRound("scissors", computerSelection);
-    rounds++;
 }); 
 
 //generate computer choice
@@ -29,58 +27,64 @@ function getComputerChoice() {
     return randomChoices;
 };
 
-//play one round
+//play one round and show scores
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "scissors") {
-        alert("Player won! Rock beats Scissors");
+        alert("Player won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
+        rounds++;
     } 
     else if (playerSelection == "rock" && computerSelection == "paper") {
-        alert("Computer won! Paper beats Rock");
+        alert("Computer won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
+        rounds++;
     } 
     else if (playerSelection == "rock" && computerSelection == "rock") {
-        alert("Draw! Rock can't beat Rock");
+        alert("Draw! Rock can't beat Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
     } 
     else if(playerSelection === "paper" && computerSelection === "scissors"){
-        alert("Computer won! Scissors beats Paper");
+        alert("Computer won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
+        rounds++;
     } 
     else if(playerSelection === "paper" && computerSelection === "paper") {     
-        alert("Draw! Paper can't beat Paper");
+        alert("Draw! Paper can't beat Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
     } 
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        alert("Player won! Paper beats Rock");
+        alert("Player won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
+        rounds++;
     } 
     else if(playerSelection === "scissors" && computerSelection === "scissors" ){
-        alert("Draw! Scissors can't beat Scissors");
+        alert("Draw! Scissors can't beat Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
     } 
     else if(playerSelection === "scissors" && computerSelection === "paper") {
-        alert("Player won! Scissors beats Paper");
+        alert("Player won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
+        rounds++;
     } 
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        alert("Computer won! Rock beats Scissors");
+        alert("Computer won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
+        rounds++;
     }
     
-    if(rounds == 5 && playerScore >= 5 || computerScore >= 5 || playerScore === computerScore){
+    if(rounds === 5){
         finGame();
     }
 };
 
-//finished game
+//finished game, show final scores
 function finGame() {
-    if(playerScore >= 5) {
-        alert("Player won! Congrats!");
-    } else if(computerScore >= 5) {
-        alert("Computer won");
-    } else if(rounds = 5 && playerScore === computerScore) {
-        alert("Tie!");
+    if(rounds == 5 && playerScore > computerScore) {
+        alert("Player won!!! Computer lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+    } else if(rounds == 5 && playerScore < computerScore) {
+        alert("Computer won!!! You lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+    } else if(rounds == 5 && playerScore === computerScore) {
+        alert("Draw!!! Try again..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     }
 };
 
@@ -98,10 +102,10 @@ The play round stored a counter, in my case I did it with the score, - DONE
 and after the round is played, I checked if the finish game condition is met, 
 in that point I congratulated the player, asked for a new game, etc. */
 
-
 /* so you're just missing the finish game condition, 
 your playRound function could conditionally call a finishGame function 
 in which you set up everything to finish the game */
+
 
 
 /*   function game() {    
