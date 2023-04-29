@@ -6,17 +6,17 @@ let rounds = 0;
 //UI buttons for player choice
 let buttonRock = document.querySelector("#brock");
 buttonRock.addEventListener("click", () => {
-    playRound("rock", computerSelection);
+    playRound("rock", getComputerChoice());
 }); 
 
 let buttonPaper = document.querySelector("#bpaper");
 buttonPaper.addEventListener("click", () => {
-    playRound("paper", computerSelection);   
+    playRound("paper", getComputerChoice());   
 }); 
 
 let buttonScissors = document.querySelector("#bscissors");
 buttonScissors.addEventListener("click", () => {
-    playRound("scissors", computerSelection);
+    playRound("scissors", getComputerChoice());
 }); 
 
 //generate computer choice
@@ -30,46 +30,46 @@ function getComputerChoice() {
 //play one round and show scores
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "scissors") {
-        alert("Player won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
         rounds++;
+        alert("Player won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if (playerSelection == "rock" && computerSelection == "paper") {
-        alert("Computer won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
         rounds++;
+        alert("Computer won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if (playerSelection == "rock" && computerSelection == "rock") {
-        alert("Draw! Rock can't beat Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
+        alert("Draw! Rock can't beat Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "paper" && computerSelection === "scissors"){
-        alert("Computer won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
         rounds++;
+        alert("Computer won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "paper" && computerSelection === "paper") {     
-        alert("Draw! Paper can't beat Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
+        alert("Draw! Paper can't beat Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        alert("Player won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
         rounds++;
+        alert("Player won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "scissors" && computerSelection === "scissors" ){
-        alert("Draw! Scissors can't beat Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         rounds++;
+        alert("Draw! Scissors can't beat Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "scissors" && computerSelection === "paper") {
-        alert("Player won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         playerScore++;
         rounds++;
+        alert("Player won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } 
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        alert("Computer won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
         computerScore++;
         rounds++;
+        alert("Computer won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     }
     
     if(rounds === 5){
@@ -80,11 +80,11 @@ function playRound(playerSelection, computerSelection) {
 //finished game, show final scores
 function finGame() {
     if(rounds == 5 && playerScore > computerScore) {
-        alert("Player won!!! Computer lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        alert("Player won!!! Computer lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } else if(rounds == 5 && playerScore < computerScore) {
-        alert("Computer won!!! You lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        alert("Computer won!!! You lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     } else if(rounds == 5 && playerScore === computerScore) {
-        alert("Draw!!! Try again..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        alert("Draw!!! Try again... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     }
 };
 
