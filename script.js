@@ -72,7 +72,7 @@ function playRound(playerSelection, computerSelection) {
         alert("Computer won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
     }
     
-    if(rounds === 5){
+    if(rounds === 5) {
         finGame();
     }
 };
@@ -88,56 +88,19 @@ function finGame() {
     }
 };
 
+//reset game button
+function resetGame (){
+    rounds = 0;
+    playerScore = 0;
+    computerScore = 0;
+    alert("Reset done. Let's play again!");
+};
 
+let resetButton = document.querySelector("#resetButton");
+resetButton.addEventListener("click", () => {
+    resetGame()
+});
 
-
-
-
-
-/* I ended up adding event listeners to the ui buttons, 
-which called the play round with different player selections 
-depending on the button clicked. - DONE
-
-The play round stored a counter, in my case I did it with the score, - DONE
-and after the round is played, I checked if the finish game condition is met, 
-in that point I congratulated the player, asked for a new game, etc. */
-
-/* so you're just missing the finish game condition, 
-your playRound function could conditionally call a finishGame function 
-in which you set up everything to finish the game */
-
-
-
-/*   function game() {    
-    for (let i = 0; i < 5; i++) { 
-        const playerSelection = prompt("Please choose - Rock, Paper, Scissors?").toLowerCase(); //player move
-        let computerSelection = getComputerChoice();//computer move
-        let roundScore = playRound(playerSelection, computerSelection);//score one round
-        console.log(playRound(playerSelection, computerSelection));         
-
-        playRound() //play one round and assign scores
-            if (roundScore === "Player won! Rock beats Scissors" || roundScore === "Player won! Paper beats Rock" || roundScore === "Player won! Scissors beats Paper") {
-            alert("You won! Computer lose."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-            playerScore++;
-            } else if (roundScore === "Computer won! Paper beats Rock" || roundScore ===  "Computer won! Scissors beats Paper" || roundScore === "Computer won! Rock beats Scissors") {
-            alert("Computer won! You lose."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-            computerScore++;
-            } else if (roundScore === "Draw!") {
-            alert("Draw!"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-            } else {
-            alert("Wrong choice.");
-            } 
-    } 
-    //final evaluation and declaring a winner and loser
-    if (playerScore > computerScore) {
-        alert("Player won!!! Computer lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-    } else if (computerScore > playerScore) {
-        alert("Computer won!!! You lose..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-    } else if (computerScore === playerScore && computerScore !=0 && playerScore !=0 ) {
-        alert("Draw!!! Try again..."+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
-    } else {
-        alert("Wrong choice, please try again");
-    }
-} 
-
-game() */
+//add score counter on the page
+document.querySelector("#playerScore").innerHTML = playerScore;
+document.querySelector("#computerScore").innerHTML = computerScore;
