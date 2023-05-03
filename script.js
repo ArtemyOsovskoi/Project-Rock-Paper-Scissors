@@ -7,16 +7,22 @@ let rounds = 0;
 let buttonRock = document.querySelector("#brock");
 buttonRock.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
+    updateScore(playerScore, computerScore);
+    updateRounds(rounds);
 }); 
 
 let buttonPaper = document.querySelector("#bpaper");
 buttonPaper.addEventListener("click", () => {
-    playRound("paper", getComputerChoice());   
+    playRound("paper", getComputerChoice());
+    updateScore(playerScore, computerScore);
+    updateRounds(rounds);
 }); 
 
 let buttonScissors = document.querySelector("#bscissors");
 buttonScissors.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
+    updateScore(playerScore, computerScore);
+    updateRounds(rounds);
 }); 
 
 //generate computer choice
@@ -32,44 +38,44 @@ function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "scissors") {
         playerScore++;
         rounds++;
-        alert("Player won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Player won! Rock beats Scissors");
     } 
     else if (playerSelection == "rock" && computerSelection == "paper") {
         computerScore++;
         rounds++;
-        alert("Computer won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Computer won! Paper beats Rock");
     } 
     else if (playerSelection == "rock" && computerSelection == "rock") {
         rounds++;
-        alert("Draw! Rock can't beat Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Draw! Rock can't beat Rock");
     } 
     else if(playerSelection === "paper" && computerSelection === "scissors"){
         computerScore++;
         rounds++;
-        alert("Computer won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Computer won! Scissors beats Paper");
     } 
     else if(playerSelection === "paper" && computerSelection === "paper") {     
         rounds++;
-        alert("Draw! Paper can't beat Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Draw! Paper can't beat Paper");
     } 
     else if(playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
         rounds++;
-        alert("Player won! Paper beats Rock. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Player won! Paper beats Rock");
     } 
     else if(playerSelection === "scissors" && computerSelection === "scissors" ){
         rounds++;
-        alert("Draw! Scissors can't beat Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Draw! Scissors can't beat Scissors");
     } 
     else if(playerSelection === "scissors" && computerSelection === "paper") {
         playerScore++;
         rounds++;
-        alert("Player won! Scissors beats Paper. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Player won! Scissors beats Paper.");
     } 
     else if(playerSelection === "scissors" && computerSelection === "rock") {
         computerScore++;
         rounds++;
-        alert("Computer won! Rock beats Scissors. "+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Computer won! Rock beats Scissors");
     }
     
     if(rounds === 5) {
@@ -80,11 +86,14 @@ function playRound(playerSelection, computerSelection) {
 //finished game, show final scores
 function finGame() {
     if(rounds == 5 && playerScore > computerScore) {
-        alert("Player won!!! Computer lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Player won!!! Computer lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        resetGame();
     } else if(rounds == 5 && playerScore < computerScore) {
-        alert("Computer won!!! You lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Computer won!!! You lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        resetGame();
     } else if(rounds == 5 && playerScore === computerScore) {
-        alert("Draw!!! Try again... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Draw!!! Try again... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        resetGame();
     }
 };
 
@@ -93,14 +102,27 @@ function resetGame (){
     rounds = 0;
     playerScore = 0;
     computerScore = 0;
-    alert("Reset done. Let's play again!");
+    updateScore(playerScore, computerScore);
+    updateRounds(rounds);
 };
 
 let resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", () => {
     resetGame()
+    gameLog.textContent = ("Reset done!"); 
 });
 
-//add score counter on the page
-document.querySelector("#playerScore").innerHTML = playerScore;
-document.querySelector("#computerScore").innerHTML = computerScore;
+//add score counter on the page - update scores
+function updateScore (playerScore, computerScore) {
+    document.querySelector("#pScore").innerText = playerScore;
+    document.querySelector("#cScore").innerText = computerScore;
+};
+
+//game log container
+let gameLog = document.querySelector("#gameLogContainer");
+    gameLog.textContent = "Game Log:"
+  
+//round counter box
+function updateRounds (rounds) {
+    document.querySelector("#roundCounter").innerText = rounds;
+};
