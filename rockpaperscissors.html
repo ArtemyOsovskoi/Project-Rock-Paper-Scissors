@@ -9,30 +9,45 @@
 
     <body>
     <h1>Rock Paper Scissors</h1>
-        <div id="container">  
-            <button id="brock">Rock</button>
-            <button id="bpaper">Paper</button>
-            <button id="bscissors">Scissors</button>
+    
+    <div id="textContainer">
+        <p>You have 5 rounds to win. 3 choices to choose from. 
+        Let's find out who'll win!</p>
+    </div>
+        <div id="buttonContainer">  
+            <button id="brock">
+                <img src="images/rock_circle.PNG" class="rockimage">
+            </button>
+            <button id="bpaper">
+                <img src="images/paper_circle.PNG" class="paperimage">
+            </button>
+            <button id="bscissors">
+                <img src="images/scissors_circle.PNG" class="scissorsimage">
+            </button>
         </div>
 
-        <button id="resetButton">Reset</button>
+        <button id="resetButton">
+            <img src="images/reset.png">
+        </button>
         <button id="playAgainButton">Play Again</button>
 
-    <div id="containerPlayerScore">
-        <div>Player:</div>
-        <div id="pScore">0</div>
+<div id="scoreAndRound">
+    <div id="scoreContainer">
+        <div id="containerPlayerScore">
+            <div>Player:</div>
+            <div id="pScore">0</div>
+        </div>
+
+        <div id="containerComputerScore">
+            <div>Computer:</div>
+            <div id="cScore">0</div>
+        </div>
     </div>
-
-    <div id="containerComputerScore">
-        <div>Computer:</div>
-        <div id="cScore">0</div>
-    </div>
-
-    <div id="gameLogContainer"></div>
-
-    <div>Rounds:
+    <div id="roundContainer">Rounds:
         <div id="roundCounter"></div>
     </div>
+</div>
 
+    <div id="gameLogContainer"></div>
     </body>
 </html>
