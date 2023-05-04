@@ -137,6 +137,7 @@ function playAgain () {
     document.querySelector("#bscissors").style.visibility = "visible";
     document.querySelector("#resetButton").style.visibility = "visible";
     document.querySelector("#playAgainButton").style.visibility = "hidden";
+    gameLog.textContent = "Game Log:";
 };
 
 //play again button
@@ -162,7 +163,7 @@ function updateRounds (rounds) {
 //game log container
 let gameLog = document.querySelector("#gameLogContainer");
     gameLog.textContent = "Game Log:"
-  
+
 
 
 
