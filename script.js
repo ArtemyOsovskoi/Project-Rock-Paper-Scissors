@@ -3,7 +3,7 @@ let playerScore = 0;
 let computerScore = 0;
 let rounds = 0; 
 
-//UI buttons for player choice
+//buttons for player choice
 let buttonRock = document.querySelector("#brock");
 buttonRock.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
@@ -33,7 +33,7 @@ function getComputerChoice() {
     return randomChoices;
 };
 
-//play one round and show scores
+//play one round 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == "rock" && computerSelection == "scissors") {
         playerScore++;
@@ -86,14 +86,26 @@ function playRound(playerSelection, computerSelection) {
 //finished game, show final scores
 function finGame() {
     if(rounds == 5 && playerScore > computerScore) {
-        gameLog.textContent = ("Game Log: Player won!!! Computer lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Player won!!! Computer lose... Final score:"
+        +"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        hideButtons();
         resetGame();
+        document.querySelector("#playAgainButton").style.visibility = "visible";
+        document.querySelector("#resetButton").style.visibility = "hidden";
     } else if(rounds == 5 && playerScore < computerScore) {
-        gameLog.textContent = ("Game Log: Computer won!!! You lose... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Computer won!!! You lose... Final score:"
+        +"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        hideButtons();
         resetGame();
+        document.querySelector("#playAgainButton").style.visibility = "visible";
+        document.querySelector("#resetButton").style.visibility = "hidden";
     } else if(rounds == 5 && playerScore === computerScore) {
-        gameLog.textContent = ("Game Log: Draw!!! Try again... Final score:"+"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+        gameLog.textContent = ("Game Log: Draw!!! Try again... Final score:"
+        +"Player"+":"+ playerScore + "-" + "Computer"+":"+computerScore);
+       hideButtons();
         resetGame();
+        document.querySelector("#playAgainButton").style.visibility = "visible";
+        document.querySelector("#resetButton").style.visibility = "hidden";
     }
 };
 
@@ -105,12 +117,36 @@ function resetGame (){
     updateScore(playerScore, computerScore);
     updateRounds(rounds);
 };
-
 let resetButton = document.querySelector("#resetButton");
 resetButton.addEventListener("click", () => {
     resetGame()
     gameLog.textContent = ("Reset done!"); 
 });
+
+//hide buttons function
+function hideButtons () {
+    document.querySelector("#brock").style.visibility = "hidden";
+    document.querySelector("#bpaper").style.visibility = "hidden";
+    document.querySelector("#bscissors").style.visibility = "hidden";
+};
+
+//play again function
+function playAgain () {
+    document.querySelector("#brock").style.visibility = "visible";
+    document.querySelector("#bpaper").style.visibility = "visible";
+    document.querySelector("#bscissors").style.visibility = "visible";
+    document.querySelector("#resetButton").style.visibility = "visible";
+    document.querySelector("#playAgainButton").style.visibility = "hidden";
+};
+
+//play again button
+let playAgainButton = document.querySelector("#playAgainButton");
+playAgainButton.addEventListener("click", () => {
+    playAgain();
+});
+
+//hide play again button 
+document.querySelector("#playAgainButton").style.visibility = "hidden";
 
 //add score counter on the page - update scores
 function updateScore (playerScore, computerScore) {
@@ -118,11 +154,19 @@ function updateScore (playerScore, computerScore) {
     document.querySelector("#cScore").innerText = computerScore;
 };
 
-//game log container
-let gameLog = document.querySelector("#gameLogContainer");
-    gameLog.textContent = "Game Log:"
-  
 //round counter box
 function updateRounds (rounds) {
     document.querySelector("#roundCounter").innerText = rounds;
 };
+
+//game log container
+let gameLog = document.querySelector("#gameLogContainer");
+    gameLog.textContent = "Game Log:"
+  
+
+
+
+
+
+//add sounds on click
+//add styles, basic grid, font and colors
