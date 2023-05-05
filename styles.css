@@ -13,7 +13,7 @@ html, body {
 
 header {
     width: 100%;
-    background-color: lightgoldenrodyellow;
+    background-color: #fafad6;
     text-align: center;
 }
 
@@ -26,10 +26,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
 h1 {
-    color: rgb(253, 185, 37);
+    color: rgb(255, 186, 37);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-bottom: 20px;
 }
@@ -59,14 +60,12 @@ button {
 }
 
 #playAgainButton {
- background-color: rgb(130, 194, 247);
+    background-color: rgb(130, 194, 247);
     padding-left: 64px;
     padding-right: 64px;
     padding-top: 26px;
     padding-bottom: 26px;
-    font-size: 34px;
-    margin-top: 20px;
-    margin-bottom: 100px;
+    font-size: 38px;
 }
 
 #playAgainButton:hover {
@@ -81,10 +80,6 @@ button {
     border-radius: 32px;
     padding: 16px;
 }
-
-/* #containerPlayerScore {
-    display: inline;
-} */
 
 #roundContainer {
     background-color: rgb(25, 23, 27);
@@ -110,12 +105,42 @@ button {
 }
 
 #gameLogContainer {
-    margin-top: -120px;
+    margin-top: -5px;
     border-radius: 32px;
     padding: 24px;
     font-size: 40px;
 }
 
+footer {
+    margin-top: auto;
+}
 
+.footer {
+    display: flex;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 
+.footer a {
+    margin-left: 10px;
+    text-decoration: none;
+}
 
+.footer a:hover {
+    color: orange;
+}
+
+@media(max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding-top: 20px;
+        text-align: center;
+    }
+    html, body { 
+    margin: auto; 
+    height: 100%; 
+    overflow: auto;
+} 
+
+   
+}
