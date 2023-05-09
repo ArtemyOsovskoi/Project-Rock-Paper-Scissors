@@ -219,6 +219,13 @@ footer {
     color: orange;
 }
 
+.githubicon {
+    height:26px;
+    width: 26px;
+    background-color: transparent;
+    margin-left: 10px;
+}
+
 /* responsiveness */
 @media(max-width: 768px) {
     body {
