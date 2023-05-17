@@ -1,5 +1,5 @@
 # Project-Rock-Paper-Scissors
-
+Live: https://artemyosovskoi.github.io/Rock-Paper-Scissors/rockpaperscissors.html
 ## Introduction
 This is my first JS project. I'm making this while working through the Odin Project JS lessons. 
 
@@ -26,6 +26,10 @@ CSS
 
 ## The Project status
 Finished 05.05.2023
+## Things learned
+- DOM manipulation
+- function logic
+- page layout
 
 
 
